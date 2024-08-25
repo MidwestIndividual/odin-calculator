@@ -22,4 +22,57 @@ body {
     height: 600px;
     width: 400px;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+}
+
+.digit-display {
+    background-color: white;
+    color: black;
+    height: 60px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 5px;
+}
+
+.button-row {
+    flex-grow: 1;
+    display: flex;
+    gap: 5px;
+}
+
+.teal-button,
+.blue-button,
+.orange-button {
+    flex-grow: 1;
+    flex-basis: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    border-radius: 4px;
+}
+
+.teal-button {
+    background-color: teal;
+}
+
+.blue-button {
+    background-color: lightblue;
+}
+
+.orange-button {
+    background-color: orange;
+}
+
+.button-row > .double {
+    flex-basis: 50%;
+    display: flex;
+    gap: 4px;
 }
