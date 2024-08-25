@@ -2,8 +2,24 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: aliceblue;
+}
+
+html {
+    height: 100%;
 }
 
 body {
+    height: 100%;
     background-color: lightcoral;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator-body {
+    background-color: black;
+    height: 600px;
+    width: 400px;
+    border-radius: 5px;
 }
