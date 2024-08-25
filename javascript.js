@@ -1,11 +1,31 @@
-let register = [];
+let register = [""];
 
 const digitDisplay = document.querySelector(".digit-display");
 
-digitDisplay.textContent = "Testing Content";
-
 function updateDigitDisplay(register) {
     digitDisplay.textContent = register[0];
+}
+
+function numericButton(eventTarget) {
+    let registerIndex;
+
+    registerIndex = register.length == 1 ? 0 : 2;
+
+    if (eventTarget.textContent == '.'){
+        // Call dot code
+        return;
+    }
+
+    if (eventTarget.textContent == '0'){
+        if (register[registerIndex] != '0') {
+            register[registerIndex] += '0';
+        }
+    } else {
+        if (register[registerIndex] == '0') {
+            register[registerIndex] = '';
+        }
+        register[registerIndex] += eventTarget.textContent;
+    }
 }
 
 const orangeButtons = Array.from(document.querySelectorAll(".orange-button, .teal-button, .blue-button"));
@@ -17,7 +37,7 @@ orangeButtons.forEach((button) => {
                 // Run Operator Function
                 break;
             case 'teal-button':
-                // Run numeric function
+                numericButton(event.target);
                 break;
             case 'blue-button':
                 // Run alt function
@@ -25,5 +45,7 @@ orangeButtons.forEach((button) => {
             default:
                 alert("Critical Error");
         }
+        updateDigitDisplay(register);
     });
 });
+
