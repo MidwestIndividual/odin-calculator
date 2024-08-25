@@ -32,6 +32,12 @@ body {
     background-color: white;
     color: black;
     height: 60px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 32px;
+    font-weight: 700;
+    padding: 5px;
 }
 
 .buttons {
