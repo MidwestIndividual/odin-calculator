@@ -33,15 +33,13 @@ function blueButton(eventTarget) {
 
     switch (eventTarget.textContent){
         case 'AC':
-            // Call AC Function
+            register = ['0'];
             break;
         case '+/-':
             register[registerIndex] = (-register[registerIndex]).toString();
-            // Call +/- Function
-
             break;
         case '%':
-            // Call percent function
+            register[registerIndex] = (+register[registerIndex]/100).toString();
             break;
     }
 }
