@@ -30,6 +30,18 @@ function numericButton(eventTarget) {
     }
 }
 
+function color(eventTarget) {
+    eventTarget.style.backgroundColor = 'gold';
+    eventTarget.setAttribute('class','orange-button colored');
+}
+
+function decolor() {
+    coloredNodes = Array.from(document.querySelectorAll('.colored'));
+    coloredNodes.forEach((node) => {
+        node.style.backgroundColor = 'orange';
+    })
+}
+
 function blueButton(eventTarget) {
     let registerIndex = register.length == 1 ? 0 : 2;
 
@@ -66,6 +78,7 @@ function evaluate() {
 
 function operatorButton(eventTarget) {
     let registerIndex = register.length == 1 ? 0 : 2;
+    decolor();
 
     switch (eventTarget.textContent){
         case '/':
@@ -76,6 +89,7 @@ function operatorButton(eventTarget) {
                 evaluate();
             }
             register[1] = eventTarget.textContent;
+            color(eventTarget);
             break;
         case '=':
             if (registerIndex == 2) {
