@@ -3,7 +3,7 @@ let register = [""];
 const digitDisplay = document.querySelector(".digit-display");
 
 function updateDigitDisplay(register) {
-    digitDisplay.textContent = register[0];
+    digitDisplay.textContent = register.length <= 2 ? register[0] : register[2];
 }
 
 function numericButton(eventTarget) {
