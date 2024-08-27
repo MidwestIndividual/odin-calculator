@@ -28,6 +28,24 @@ function numericButton(eventTarget) {
     }
 }
 
+function blueButton(eventTarget) {
+    let registerIndex = register.length == 1 ? 0 : 2;
+
+    switch (eventTarget.textContent){
+        case 'AC':
+            // Call AC Function
+            break;
+        case '+/-':
+            register[registerIndex] = (-register[registerIndex]).toString();
+            // Call +/- Function
+
+            break;
+        case '%':
+            // Call percent function
+            break;
+    }
+}
+
 const orangeButtons = Array.from(document.querySelectorAll(".orange-button, .teal-button, .blue-button"));
 orangeButtons.forEach((button) => {
     button.addEventListener('click', (event) => {
@@ -40,7 +58,7 @@ orangeButtons.forEach((button) => {
                 numericButton(event.target);
                 break;
             case 'blue-button':
-                // Run alt function
+                blueButton(event.target);
                 break;
             default:
                 alert("Critical Error");
