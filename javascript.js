@@ -42,7 +42,7 @@ function decolor() {
     })
 }
 
-function blueButton(eventTarget) {
+function specialButton(eventTarget) {
     let registerIndex = register.length == 1 ? 0 : 2;
 
     switch (eventTarget.textContent){
@@ -85,7 +85,7 @@ function operatorButton(eventTarget) {
         case '*':
         case '-':
         case '+':
-            if (registerIndex == 2) {
+            if (register.length == 3) {
                 evaluate();
             }
             register[1] = eventTarget.textContent;
@@ -102,6 +102,8 @@ function operatorButton(eventTarget) {
 const orangeButtons = Array.from(document.querySelectorAll(".orange-button, .teal-button, .blue-button"));
 orangeButtons.forEach((button) => {
     button.addEventListener('click', (event) => {
+        decolor();
+
         const className = event.target.className.split(' ')[0];
         switch (className) {
             case 'orange-button':
@@ -111,7 +113,7 @@ orangeButtons.forEach((button) => {
                 numericButton(event.target);
                 break;
             case 'blue-button':
-                blueButton(event.target);
+                specialButton(event.target);
                 break;
             default:
                 alert("Critical Error");
