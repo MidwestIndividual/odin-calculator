@@ -99,8 +99,8 @@ function operatorButton(eventTarget) {
     }
 }
 
-const orangeButtons = Array.from(document.querySelectorAll(".orange-button, .teal-button, .blue-button"));
-orangeButtons.forEach((button) => {
+const buttons = Array.from(document.querySelectorAll(".orange-button, .teal-button, .blue-button"));
+buttons.forEach((button) => {
     button.addEventListener('click', (event) => {
         decolor();
 
@@ -118,6 +118,7 @@ orangeButtons.forEach((button) => {
             default:
                 alert("Critical Error");
         }
+        
         updateDigitDisplay(register);
     });
 });
