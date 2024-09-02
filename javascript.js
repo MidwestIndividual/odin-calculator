@@ -1,4 +1,5 @@
 let register = [""];
+let resetRequired = false;
 
 const digitDisplay = document.querySelector(".digit-display");
 
@@ -9,12 +10,19 @@ function updateDigitDisplay(register) {
 function numericButton(eventTarget) {
     let registerIndex = register.length == 1 ? 0 : 2;
 
+    if (resetRequired) {
+        register[registerIndex] = '';
+        resetRequired = false;
+    }
+
     if (register.length == registerIndex) {
         register.push('');
     }
 
     if (eventTarget.textContent == '.'){
-        // Call dot code
+        if (!register[registerIndex].includes('.')){
+            register[registerIndex] += ".";
+        }
         return;
     }
 
@@ -60,6 +68,13 @@ function specialButton(eventTarget) {
 
 function evaluate() {
     let operator = register[1];
+
+    if (operator == '/' && register[2] == '0') {
+        register = ['Stinky Operations Forbidden'];
+        resetRequired = true;
+        return;
+    }
+
     switch (operator) {
         case '/':
             register = [+register[0] / +register[2]];
